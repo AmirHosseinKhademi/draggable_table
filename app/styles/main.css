@@ -1,0 +1,20 @@
+/*
+Customized Styles (Extra Styles + Semantic Overrides)
+*/
+
+body {
+    background: #edeff0 !important;
+    background: url("../media/images/bg.png");
+}
+
+body, h1, h2, h3, h4, h5, .ui.header, .ui.menu, .ui.button, .ui.accordion .title:not(.ui), p, .ui.message .header, .ui.form input:not([type]), .ui.form input[type="date"], .ui.form input[type="datetime-local"], .ui.form input[type="email"], .ui.form input[type="number"], .ui.form input[type="password"], .ui.form input[type="search"], .ui.form input[type="tel"], .ui.form input[type="time"], .ui.form input[type="text"], .ui.form input[type="url"], .ui.modal > .header, .ui.cards > .card > .content > .header, .ui.card > .content > .header {
+    font-family: IRANSans, 'IRANSans', tahoma, serif;
+}
+
+a.tp-logo-title:hover {
+    background: none transparent !important;
+}
+
+.ui.table {
+    text-align: center;
+}

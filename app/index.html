@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>
+<html dir="rtl" ng-app="myApp" class="no-js lt-ie9 lt-ie8 lt-ie7">
+<![endif]-->
+<!--[if IE 7]>
+<html dir="rtl" ng-app="myApp" class="no-js lt-ie9 lt-ie8">
+<![endif]-->
+<!--[if IE 8]>
+<html dir="rtl" ng-app="myApp" class="no-js lt-ie9">
+<![endif]-->
+<!--[if gt IE 8]><!-->
+<html dir="rtl" ng-app="myApp" class="no-js">
+<!--<![endif]-->
+<head>
+
+    <!-- Meta Tags START -->
+    <meta charset="utf-8">
+    <link rel="icon" type="image/png" href="media/images/icon.ico"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>گرید با قابلیت انتقال رکوردها</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="گرید با قابلیت انتقال رکوردها,انتقال رکوردها بین گرید ها,grid drag drop">
+    <meta name="description" content="گریدهایی با قابلیت انتقال رکورد به صورت کشیدن و رها کردن بین آن ها">
+    <meta name="author" content="بنا به قوانین فناورد ذکر نشد">
+    <!-- Meta Tags ENDS -->
+
+    <!-- Stylesheets START -->
+    <link rel="stylesheet" type="text/css" href="libs/semantic-ui/semantic/dist/semantic.rtl.css">
+    <link rel="stylesheet" type="text/css" href="styles/fonts/fonts.css">
+    <link rel="stylesheet" type="text/css" href="bower_components/angular-dragula/dist/dragula.min.css">
+    <link rel="stylesheet" type="text/css" href="styles/main.css">
+    <!-- Stylesheets ENDS -->
+
+</head>
+<body>
+<div class="ui container">
+    <div class="ui segments">
+        <!-- Header START -->
+        <div class="ui segment">
+            <div class="ui secondary stackable menu">
+                <a href="#!/" class="header item tp-logo-title">
+                    <h2 class="ui header">
+                        <img class="ui image" src="media/images/logo.png">
+                        <div class="content">
+                            گرید با قابلیت انتقال رکوردها
+                        </div>
+                    </h2>
+                </a>
+            </div>
+        </div>
+        <!-- Header ENDS -->
+
+
+        <!-- Body START -->
+        <div class="ui very padded segment" ng-controller="MainCtrl">
+            <h3 class="ui centered block header">
+                تنها رکوردهایی قابل انتقال هستند که دارای مقدار TRUE در سطر آخر هستند
+            </h3>
+            <div class="ui stackable grid">
+                <!--Grid #1 START-->
+                <div class="eight wide column">
+                    <table class="ui selectable striped celled table">
+                        <thead>
+                        <tr>
+                            <th>نام و نام خانوادگی</th>
+                            <th>ایمیل</th>
+                            <th>سن</th>
+                            <th>در قید حیات</th>
+                        </tr>
+                        </thead>
+                        <tbody dragula='"drag-holder"' dragula-model="right_table_items">
+                        <tr ng-if="!right_table_items.length" class="negative">
+                            <td colspan="4">موردی برای نمایش وجود ندارد.</td>
+                        </tr>
+                        <tr ng-repeat="item in right_table_items" ng-class="item.alive?'positive':'negative'">
+                            <td>{{item.name}}</td>
+                            <td>{{item.email}}</td>
+                            <td>{{item.age}}</td>
+                            <td>{{item.alive}}</td>
+                        </tr>
+                        </tbody>
+                        <tfoot>
+                        <tr>
+                            <th colspan="4">
+                                <strong>تعداد رکوردها : {{right_table_items.length}}</strong>
+                            </th>
+                        </tr>
+                        </tfoot>
+                    </table>
+                </div>
+                <!--Grid #1 END-->
+
+                <!--Grid #1 START-->
+                <div class="eight wide column">
+                    <table class="ui selectable striped celled table">
+                        <thead>
+                        <tr>
+                            <th>نام و نام خانوادگی</th>
+                            <th>ایمیل</th>
+                            <th>سن</th>
+                            <th>در قید حیات</th>
+                        </tr>
+                        </thead>
+                        <tbody dragula='"drag-holder"' dragula-model="left_table_items">
+                        <tr ng-if="!left_table_items.length" class="negative">
+                            <td colspan="4">موردی برای نمایش وجود ندارد.</td>
+                        </tr>
+                        <tr ng-repeat="item in left_table_items" ng-class="item.alive?'positive':'negative'">
+                            <td>{{item.name}}</td>
+                            <td>{{item.email}}</td>
+                            <td>{{item.age}}</td>
+                            <td>{{item.alive}}</td>
+                        </tr>
+                        </tbody>
+                        <tfoot>
+                        <tr>
+                            <th colspan="4">
+                                <strong>تعداد رکوردها : {{left_table_items.length}}</strong>
+                            </th>
+                        </tr>
+                        </tfoot>
+                    </table>
+                </div>
+                <!--Grid #1 END-->
+
+
+            </div>
+        </div>
+        <!-- Body ENDS -->
+
+        <!--Footer START-->
+        <div class="ui center aligned segment">
+            سومین دوره مسابقات ملی مهارت سنجی فناورد
+        </div>
+        <!--Footer END-->
+
+    </div>
+</div>
+
+
+<!-- JavaScripts START -->
+<script type="text/javascript" src="libs/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="libs/semantic-ui/semantic/dist/semantic.min.js"></script>
+<script src="bower_components/angular/angular.js"></script>
+<script src="bower_components/angular-dragula/dist/angular-dragula.min.js"></script>
+<script src="app.js"></script>
+<!-- JavaScripts  END-->
+
+</body>
+</html>
